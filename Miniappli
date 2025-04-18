@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mini App Telegram</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { background-color: #202020; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
+    h1 { color: #30a8ff; }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue sur ta mini-app</h1>
+  <p id="user">Chargement des infos...</p>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand(); // plein écran
+    const user = tg.initDataUnsafe.user;
+    document.getElementById("user").innerText = `Bonjour ${user?.first_name || "utilisateur"} !`;
+  </script>
+</body>
+</html>
